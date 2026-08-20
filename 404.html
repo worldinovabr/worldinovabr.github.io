@@ -1,1 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>Redirecionando...</title>
 
+    <script>
+      (function () {
+        var baseProjeto = '/Worship-Soma';
+        var caminhoAtual = window.location.pathname;
+        var pesquisa = window.location.search;
+        var ancora = window.location.hash;
+
+        /*
+         * Exemplo:
+         * /agenda
+         * torna-se:
+         * /Worship-Soma/agenda
+         */
+        if (
+          caminhoAtual.toLowerCase().indexOf(
+            baseProjeto.toLowerCase()
+          ) === 0
+        ) {
+          window.location.replace(
+            baseProjeto + '/' + pesquisa + ancora
+          );
+          return;
+        }
+
+        window.location.replace(
+          baseProjeto +
+          caminhoAtual +
+          pesquisa +
+          ancora
+        );
+      })();
+    </script>
+  </head>
+
+  <body>
+    <p>Redirecionando para o aplicativo...</p>
+  </body>
+</html>
